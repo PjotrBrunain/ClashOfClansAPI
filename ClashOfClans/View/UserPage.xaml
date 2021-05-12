@@ -36,52 +36,52 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="UserName" FontSize="20" VerticalAlignment="Center"/>
+        <TextBlock Text="UserName" FontSize="18" VerticalAlignment="Center"/>
         <!--Add Username binding-->
-        <TextBlock Text="{Binding CurrentUserInfo.UserName, FallbackValue=xx}" FontSize="20" VerticalAlignment="Center" Grid.Column="1"/>
-        <TextBlock Text="TownHall Level" FontSize="20" VerticalAlignment="Center" Grid.Row="1"/>
+        <TextBlock Text="{Binding CurrentUserInfo.UserName, FallbackValue=xx}" FontSize="18" VerticalAlignment="Center" Grid.Column="1"/>
+        <TextBlock Text="TownHall Level" FontSize="18" VerticalAlignment="Center" Grid.Row="1"/>
         <!--Add TownHall binding-->
-        <TextBlock Text="{Binding CurrentUserInfo.TownHallLevel, FallbackValue=xx}" FontSize="20" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"/>
-        <TextBlock Text="Experience Level" FontSize="20" VerticalAlignment="Center" Grid.Row="2"/>
+        <TextBlock Text="{Binding CurrentUserInfo.TownHallLevel, FallbackValue=xx}" FontSize="18" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"/>
+        <TextBlock Text="Experience Level" FontSize="18" VerticalAlignment="Center" Grid.Row="2"/>
         <!--Add expLevel binding-->
-        <TextBlock Text="{Binding CurrentUserInfo.ExpLevel, FallbackValue=xx}" FontSize="20" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1"/>
-        <TextBlock Text="Trophies" FontSize="20" VerticalAlignment="Center" Grid.Row="3"/>
+        <TextBlock Text="{Binding CurrentUserInfo.ExpLevel, FallbackValue=xx}" FontSize="18" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1"/>
+        <TextBlock Text="Trophies" FontSize="18" VerticalAlignment="Center" Grid.Row="3"/>
         <!--Add Trophies binding-->
-        <TextBlock Text="{Binding CurrentUserInfo.Trophies, FallbackValue=xx}" FontSize="20" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1"/>
-        <TextBlock Text="Best Trophies" FontSize="20" VerticalAlignment="Center" Grid.Row="4"/>
+        <TextBlock Text="{Binding CurrentUserInfo.Trophies, FallbackValue=xx}" FontSize="18" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1"/>
+        <TextBlock Text="Best Trophies" FontSize="18" VerticalAlignment="Center" Grid.Row="4"/>
         <!--Add bestTrophies binding-->
-        <TextBlock Text="{Binding CurrentUserInfo.BestTrophies, FallbackValue=xx}" FontSize="20" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1"/>
-        <TextBlock Text="War Stars" FontSize="20" VerticalAlignment="Center" Grid.Row="5"/>
+        <TextBlock Text="{Binding CurrentUserInfo.BestTrophies, FallbackValue=xx}" FontSize="18" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1"/>
+        <TextBlock Text="War Stars" FontSize="18" VerticalAlignment="Center" Grid.Row="5"/>
         <!--Add warStars binding-->
-        <TextBlock Text="{Binding CurrentUserInfo.WarStars, FallbackValue=xx}" FontSize="20" VerticalAlignment="Center" Grid.Row="5" Grid.Column="1"/>
-        <TextBlock Text="Attacks Won" FontSize="20" VerticalAlignment="Center" Grid.Row="6"/>
+        <TextBlock Text="{Binding CurrentUserInfo.WarStars, FallbackValue=xx}" FontSize="18" VerticalAlignment="Center" Grid.Row="5" Grid.Column="1"/>
+        <TextBlock Text="Attacks Won" FontSize="18" VerticalAlignment="Center" Grid.Row="6"/>
         <!--Add attackWins binding-->
-        <TextBlock Text="{Binding CurrentUserInfo.AttackWins, FallbackValue=xx}" FontSize="20" VerticalAlignment="Center" Grid.Row="6" Grid.Column="1"/>
-        <TextBlock Text="Defenses Won" FontSize="20" VerticalAlignment="Center" Grid.Row="7"/>
+        <TextBlock Text="{Binding CurrentUserInfo.AttackWins, FallbackValue=xx}" FontSize="18" VerticalAlignment="Center" Grid.Row="6" Grid.Column="1"/>
+        <TextBlock Text="Defenses Won" FontSize="18" VerticalAlignment="Center" Grid.Row="7"/>
         <!--Add defenseWins binding-->
-        <TextBlock Text="{Binding CurrentUserInfo.DefenseWins, FallbackValue=xx}" FontSize="20" VerticalAlignment="Center" Grid.Row="7" Grid.Column="1"/>
-        <TextBlock Text="Builder Hall Level" FontSize="20" VerticalAlignment="Center" Grid.Row="8"/>
+        <TextBlock Text="{Binding CurrentUserInfo.DefenseWins, FallbackValue=xx}" FontSize="18" VerticalAlignment="Center" Grid.Row="7" Grid.Column="1"/>
+        <TextBlock Text="Builder Hall Level" FontSize="18" VerticalAlignment="Center" Grid.Row="8"/>
         <!--Add builderHallLevel binding-->
-        <TextBlock Text="{Binding CurrentUserInfo.BuilderHallLevel, FallbackValue=xx}" FontSize="20" VerticalAlignment="Center" Grid.Row="8" Grid.Column="1"/>
-        <TextBlock Text="Versus Trophies" FontSize="20" VerticalAlignment="Center" Grid.Row="9"/>
+        <TextBlock Text="{Binding CurrentUserInfo.BuilderHallLevel, FallbackValue=xx}" FontSize="18" VerticalAlignment="Center" Grid.Row="8" Grid.Column="1"/>
+        <TextBlock Text="Versus Trophies" FontSize="18" VerticalAlignment="Center" Grid.Row="9"/>
         <!--Add versusTrophies binding-->
-        <TextBlock Text="{Binding CurrentUserInfo.VersusTrophies, FallbackValue=xx}" FontSize="20" VerticalAlignment="Center" Grid.Row="9" Grid.Column="1"/>
-        <TextBlock Text="Best Versus Thropies" FontSize="20" VerticalAlignment="Center" Grid.Row="10"/>
+        <TextBlock Text="{Binding CurrentUserInfo.VersusTrophies, FallbackValue=xx}" FontSize="18" VerticalAlignment="Center" Grid.Row="9" Grid.Column="1"/>
+        <TextBlock Text="Best Versus Thropies" FontSize="18" VerticalAlignment="Center" Grid.Row="10"/>
         <!--Add bestVersusTrophies binding-->
-        <TextBlock Text="{Binding CurrentUserInfo.BestVersusTrophies, FallbackValue=xx}" FontSize="20" VerticalAlignment="Center" Grid.Row="10" Grid.Column="1"/>
-        <TextBlock Text="Versus Battles Won" FontSize="20" VerticalAlignment="Center" Grid.Row="11"/>
+        <TextBlock Text="{Binding CurrentUserInfo.BestVersusTrophies, FallbackValue=xx}" FontSize="18" VerticalAlignment="Center" Grid.Row="10" Grid.Column="1"/>
+        <TextBlock Text="Versus Battles Won" FontSize="18" VerticalAlignment="Center" Grid.Row="11"/>
         <!--Add versusBattleWins binding-->
-        <TextBlock Text="{Binding CurrentUserInfo.VersusBattleWins, FallbackValue=xx}" FontSize="20" VerticalAlignment="Center" Grid.Row="11" Grid.Column="1"/>
-        <TextBlock Text="Role" FontSize="20" VerticalAlignment="Center" Grid.Row="12"/>
+        <TextBlock Text="{Binding CurrentUserInfo.VersusBattleWins, FallbackValue=xx}" FontSize="18" VerticalAlignment="Center" Grid.Row="11" Grid.Column="1"/>
+        <TextBlock Text="Role" FontSize="18" VerticalAlignment="Center" Grid.Row="12"/>
         <!--Add role binding-->
-        <TextBlock Text="{Binding CurrentUserInfo.Role, FallbackValue=xx}" FontSize="20" VerticalAlignment="Center" Grid.Row="12" Grid.Column="1"/>
-        <TextBlock Text="Donations" FontSize="20" VerticalAlignment="Center" Grid.Row="13"/>
+        <TextBlock Text="{Binding CurrentUserInfo.Role, FallbackValue=xx}" FontSize="18" VerticalAlignment="Center" Grid.Row="12" Grid.Column="1"/>
+        <TextBlock Text="Donations" FontSize="18" VerticalAlignment="Center" Grid.Row="13"/>
         <!--Add donations binding-->
-        <TextBlock Text="{Binding CurrentUserInfo.Donations, FallbackValue=xx}" FontSize="20" VerticalAlignment="Center" Grid.Row="13" Grid.Column="1"/>
-        <TextBlock Text="Donations Received" FontSize="20" VerticalAlignment="Center" Grid.Row="14"/>
+        <TextBlock Text="{Binding CurrentUserInfo.Donations, FallbackValue=xx}" FontSize="18" VerticalAlignment="Center" Grid.Row="13" Grid.Column="1"/>
+        <TextBlock Text="Donations Received" FontSize="18" VerticalAlignment="Center" Grid.Row="14"/>
         <!--Add donationsReceived binding-->
-        <TextBlock Text="{Binding CurrentUserInfo.DonationsReceived, FallbackValue=xx}" FontSize="20" VerticalAlignment="Center" Grid.Row="14" Grid.Column="1"/>
-        <TextBlock Text="Clan" FontSize="20" VerticalAlignment="Center" Grid.Row="15"/>
+        <TextBlock Text="{Binding CurrentUserInfo.DonationsReceived, FallbackValue=xx}" FontSize="18" VerticalAlignment="Center" Grid.Row="14" Grid.Column="1"/>
+        <TextBlock Text="Clan" FontSize="18" VerticalAlignment="Center" Grid.Row="15"/>
         <!--Add Clan binding-->
         <Button Content="{Binding CurrentUserInfo.ClanName, FallbackValue=xx}" Command="" FontSize="18" VerticalAlignment="Center" HorizontalContentAlignment="Left" Grid.Row="15" Grid.Column="1"/>
     </Grid>
