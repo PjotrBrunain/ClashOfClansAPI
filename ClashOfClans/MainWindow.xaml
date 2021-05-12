@@ -1,4 +1,5 @@
 ﻿<Window x:Class="ClashOfClans.MainWindow"
+        xmlns:VM="clr-namespace:ClashOfClans.ViewModel"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +7,24 @@
         xmlns:local="clr-namespace:ClashOfClans"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid Background="#333">
-        <Frame NavigationUIVisibility="Hidden" Content=""/>
+
+    <Window.DataContext>
+        <VM:MainWindowVM></VM:MainWindowVM>
+    </Window.DataContext>
+
+    <Grid Background="AliceBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.05*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Frame NavigationUIVisibility="Hidden" Content="{Binding CurrentPage}" Grid.ColumnSpan="3"/>
+        <Button Command="{Binding GetUserInfoCommand}" Content="GetUserInfo" Grid.Row="1"/>
+        <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Tag}"/>
+        <TextBlock Grid.Column="1" Grid.Row="1" Background="AliceBlue" VerticalAlignment="Center" Text="Tag: #" HorizontalAlignment="Right"/>
     </Grid>
 </Window>

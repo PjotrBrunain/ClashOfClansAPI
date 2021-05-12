@@ -13,11 +13,16 @@ namespace ClashOfClans.Repository
 {
     class ClashOfClansRepository
     {
-        private string _apiToken;
+        private string _apiToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6Ijc5NzYxMjFmLTIzZTItNGJjYi1hMmY0LTExODk5M2UzNWRiYiIsImlhdCI6MTYyMDg1NzI1Niwic3ViIjoiZGV2ZWxvcGVyLzczNjAxZDMzLWYwYTktOWZkNi03MzhkLTNkNTZjZDI4ZDZiZiIsInNjb3BlcyI6WyJjbGFzaCJdLCJsaW1pdHMiOlt7InRpZXIiOiJkZXZlbG9wZXIvc2lsdmVyIiwidHlwZSI6InRocm90dGxpbmcifSx7ImNpZHJzIjpbIjYyLjIzNS4xOTguMTU2Il0sInR5cGUiOiJjbGllbnQifV19.RuyE3FPVyVsLOP-CHR9XTbKLSRntRegQulsePlgjn8z8SKMmPeXcOleWUlBMI_7qisJ0lHAPj3VtNKx5EcIZgQ";
 
+        public string ApiToken
+        {
+            get => _apiToken;
+            set => _apiToken = value;
+        }
         public async Task<UserInfo> GetUserInfoAsync(string userTag)
         {
-            String endpoint = $"https://api.clashofclans.com/v1/players/{userTag}";
+            String endpoint = $"https://api.clashofclans.com/v1/players/%23{userTag}";
             using (HttpClient client = new HttpClient())
             {
                 try
