@@ -23,8 +23,8 @@
             <ColumnDefinition Width="0.5*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Frame NavigationUIVisibility="Hidden" Content="{Binding CurrentPage}" Grid.ColumnSpan="3"/>
-        <Button Command="{Binding GetUserInfoCommand}" Content="GetUserInfo" Grid.Row="1"/>
-        <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Tag}"/>
-        <TextBlock Grid.Column="1" Grid.Row="1" Background="AliceBlue" VerticalAlignment="Center" Text="Tag: #" HorizontalAlignment="Right"/>
+        <Button Command="{Binding GetUserInfoCommand}" Content="GetUserInfo" Grid.Row="1" Grid.ColumnSpan="3"/>
+        <!--<TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Tag}"/>
+        <TextBlock Grid.Column="1" Grid.Row="1" Background="AliceBlue" VerticalAlignment="Center" Text="Tag: #" HorizontalAlignment="Right"/>-->
     </Grid>
 </Window>

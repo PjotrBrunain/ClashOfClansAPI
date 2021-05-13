@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ClashOfClans.Model;
 using ClashOfClans.Repository;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.CommandWpf;
 
 namespace ClashOfClans.ViewModel
 {
@@ -13,13 +14,23 @@ namespace ClashOfClans.ViewModel
     {
         public RankingsPageVM()
         {
-            var taskRes = CurrentClashOfClansRepository.GetRankingsListAsync(LocationId, Amount);
+            var taskRes = CurrentClashOfClansRepository.GetCountryListAsync();
             taskRes.ConfigureAwait(true).GetAwaiter().OnCompleted(() =>
             {
-                RankingsList = taskRes.Result;
-                RaisePropertyChanged("RankingsList");
+                Countries = taskRes.Result;
+                RaisePropertyChanged("Countries");
             });
+            //var taskRes = CurrentClashOfClansRepository.GetRankingsListAsync(LocationId, Amount);
+            //taskRes.ConfigureAwait(true).GetAwaiter().OnCompleted(() =>
+            //{
+            //    RankingsList = taskRes.Result;
+            //    RaisePropertyChanged("RankingsList");
+            //});
         }
+
+        public List<Country> Countries { get; set; } = new List<Country>();
+
+        public Country SelectedCountry { get; set; }
 
         public ClashOfClansRepository CurrentClashOfClansRepository { get; set; } = new ClashOfClansRepository();
 
@@ -36,12 +47,27 @@ namespace ClashOfClans.ViewModel
         public UserInfo SelectedUserInfo
         {
             get => _selectedUserInfo;
-            set => _selectedUserInfo = value;
+            set
+            {
+                _selectedUserInfo = value;
+            }
         }
 
-        public string Location { get; set; } = "Belgium";
+        //public string Location { get; set; } = "Belgium";
 
-        public int LocationId { get; set; } = 32000029;
+        //public int LocationId { get; set; } = 32000029;
+
+        private RelayCommand _getRankListCommand;
+
+        public RelayCommand GetRankListCommand => _getRankListCommand ?? (_getRankListCommand = new RelayCommand(() =>
+        {
+            var taskRes = CurrentClashOfClansRepository.GetRankingsListAsync(SelectedCountry.Id, Amount);
+            taskRes.ConfigureAwait(true).GetAwaiter().OnCompleted(() =>
+            {
+                RankingsList = taskRes.Result;
+                RaisePropertyChanged("RankingsList");
+            });
+        }));
 
         public int Amount { get; set; } = 50;
     }

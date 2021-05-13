@@ -74,6 +74,43 @@ namespace ClashOfClans.Repository
             }
         }
 
+        public async Task<List<Country>> GetCountryListAsync()
+        {
+            string endPoint = $"https://api.clashofclans.com/v1/locations";
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    string contentType = "application/json";
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(contentType));
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _apiToken);
+
+                    var response = await client.GetAsync(endPoint);
+                    if (!response.IsSuccessStatusCode) throw new HttpRequestException(response.ReasonPhrase);
+
+                    string json = await response.Content.ReadAsStringAsync();
+                    JObject jObject = JsonConvert.DeserializeObject<JObject>(json);
+
+                    List<Country> countries = new List<Country>();
+
+                    foreach (var jObject1 in jObject.SelectToken("items").ToObject<List<JObject>>())
+                    {
+                        if (jObject1.SelectToken("isCountry").ToObject<bool>())
+                        {
+                            countries.Add(new Country(){Id = jObject1.SelectToken("id").ToObject<int>(), name = jObject1.SelectToken("name").ToString()});
+                        }
+                    }
+
+                    return countries;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw;
+                }
+            }
+        }
+
         public async Task<List<UserInfo>> GetRankingsListAsync(int locationId, int amount)
         {
             string endPoint = $"https://api.clashofclans.com/v1/locations/{locationId}/rankings/players?limit={amount}";

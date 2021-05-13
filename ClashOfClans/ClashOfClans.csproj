@@ -73,6 +73,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Country.cs" />
     <Compile Include="Model\UserInfo.cs" />
     <Compile Include="Repository\ClashOfClansRepository.cs" />
     <Compile Include="ViewModel\MainWindowVM.cs" />
