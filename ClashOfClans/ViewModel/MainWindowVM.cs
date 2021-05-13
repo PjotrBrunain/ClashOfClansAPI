@@ -29,6 +29,14 @@ namespace ClashOfClans.ViewModel
             set => _mainPage = value;
         }
 
+        private UserPage _userDetailPage = new UserPage();
+
+        public UserPage UserDetailPage
+        {
+            get => _userDetailPage;
+            set => _userDetailPage = value;
+        }
+
         private Page _currentPage;
 
         public Page CurrentPage
@@ -43,10 +51,23 @@ namespace ClashOfClans.ViewModel
                                                   (_getUserInfoCommand =
                                                       new RelayCommand((() =>
                                                       {
-                                                          string tag = (MainPage.DataContext as RankingsPageVM)
-                                                              .SelectedUserInfo.Tag;
-                                                          (MainPage.DataContext as UserPageVM)
-                                                              .GetUserInfo(tag);
+                                                          if (CurrentPage is RankingsPage)
+                                                          {
+                                                              string tag = (MainPage.DataContext as RankingsPageVM)
+                                                                  .SelectedUserInfo.Tag;
+                                                              if (!String.IsNullOrWhiteSpace(tag))
+                                                              {
+                                                                  tag = tag.Remove(0, 1);
+                                                                  (UserDetailPage.DataContext as UserPageVM)
+                                                                      .GetUserInfo(tag);
+                                                                  CurrentPage = UserDetailPage;
+                                                              }
+                                                          }
+                                                          else
+                                                          {
+                                                              CurrentPage = MainPage;
+                                                          }
+                                                          RaisePropertyChanged("CurrentPage");
                                                       })));
     }
 }

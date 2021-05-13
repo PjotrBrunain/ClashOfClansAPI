@@ -12,18 +12,35 @@
         <VM:MainWindowVM></VM:MainWindowVM>
     </Window.DataContext>
 
-    <Grid Background="AliceBlue">
+    <Grid Background="#475c8d">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
-            <RowDefinition Height="0.05*"></RowDefinition>
+            <RowDefinition Height="0.1*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="0.5*"></ColumnDefinition>
-            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Frame NavigationUIVisibility="Hidden" Content="{Binding CurrentPage}" Grid.ColumnSpan="3"/>
-        <Button Command="{Binding GetUserInfoCommand}" Content="GetUserInfo" Grid.Row="1" Grid.ColumnSpan="3"/>
+        <Button Command="{Binding GetUserInfoCommand}" Grid.Row="1" Grid.Column="1" Background="Transparent" Margin="2" BorderThickness="0">
+            <Grid>
+                <Image Source="Resources/UI Base Pack/PNG/green_button00.png" Stretch="Fill"/>
+                <TextBlock Text="Get User Info" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
+            </Grid>
+        </Button>
+        <Button Command="" Grid.Row="1" Background="Transparent" Margin="2" BorderThickness="0">
+            <Grid>
+                <Image Source="Resources/UI Base Pack/PNG/green_button00.png" Stretch="Fill"/>
+                <TextBlock Text="Back" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
+            </Grid>
+        </Button>
+        <Button Command="" Grid.Row="1" Grid.Column="2" Background="Transparent" Margin="2" BorderThickness="0">
+            <Grid>
+                <Image Source="Resources/UI Base Pack/PNG/green_button00.png" Stretch="Fill"/>
+                <TextBlock Text="Get Clan Info" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
+            </Grid>
+        </Button>
         <!--<TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Tag}"/>
         <TextBlock Grid.Column="1" Grid.Row="1" Background="AliceBlue" VerticalAlignment="Center" Text="Tag: #" HorizontalAlignment="Right"/>-->
     </Grid>

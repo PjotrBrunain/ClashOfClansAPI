@@ -13,7 +13,7 @@
         <VM:RankingsPageVM></VM:RankingsPageVM>
     </Page.DataContext>
 
-    <Grid Background="#ebe7e4">
+    <Grid Background="#475c8d">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition Width="0.5*"></ColumnDefinition>
@@ -26,26 +26,36 @@
             <RowDefinition Height="10*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Button Content="Get Rank List" FontSize="28" VerticalAlignment="Center" Background="#c6eb6d" Command="{Binding GetRankListCommand}"/>
-        <TextBlock Text="Location" FontSize="21" VerticalAlignment="Center" Grid.Column="1" HorizontalAlignment="Right" Background="#ebe7e4" />
+        <Button VerticalContentAlignment="Center"  FontSize="28" VerticalAlignment="Center"  Command="{Binding GetRankListCommand}" Margin="2" BorderThickness="0" Background="Transparent">
+            <Grid>
+                <Image Source="../Resources/UI Base Pack/PNG/green_button00.png" Stretch="Fill"/>
+                <TextBlock Text="Get Rank List" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="21"/>
+            </Grid>
+        </Button>
+        <!--<TextBlock Text="Get Rank List" VerticalAlignment="Center" FontSize="26" HorizontalAlignment="Center" Focusable="False" />-->
+        <Image Source="../Resources/UI Base Pack/PNG/blue_button03.png" Grid.Column="1" Stretch="Fill" Margin="4"/>
+        <TextBlock Text="Location" FontSize="21" VerticalAlignment="Center" Grid.Column="1" HorizontalAlignment="Center"/>
         <!--To-do add binding for Location-->
-        <ComboBox FontSize="21" Grid.Column="2" ItemsSource="{Binding Countries}" DisplayMemberPath="name" SelectedItem="{Binding SelectedCountry}"/>
-        <TextBlock Text="Amount:" FontSize="21" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <ComboBox FontSize="21" Grid.Column="2" ItemsSource="{Binding Countries}" DisplayMemberPath="name" SelectedItem="{Binding SelectedCountry}" Background="#ffcc00"/>
+        <Image Source="../Resources/UI Base Pack/PNG/blue_button03.png" Grid.Column="3" Stretch="Fill" Margin="4"/>
+        <TextBlock Text="Amount" FontSize="21" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <!--To-do add binding for Amount-->
-        <TextBox Grid.Column="4" Text="{Binding Amount}" FontSize="28" VerticalAlignment="Center"/>
+        <Image Source="../Resources/UI Base Pack/PNG/yellow_button05.png" Grid.Column="5" Stretch="Fill" Margin="4"/>
+        <TextBox Grid.Column="4" Text="{Binding Amount}" FontSize="23" VerticalAlignment="Center" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0"/>
 
-        <ListBox Grid.Row="1" Grid.ColumnSpan="5" Foreground="Black" Background="Transparent" ItemsSource="{Binding RankingsList}" SelectedItem="{Binding SelectedUserInfo}" Grid.IsSharedSizeScope="True" HorizontalContentAlignment="Stretch">
+        <ListBox Grid.Row="1" Grid.ColumnSpan="5" Foreground="Black" Background="Transparent" ItemsSource="{Binding RankingsList}" SelectedItem="{Binding SelectedUserInfo}" Grid.IsSharedSizeScope="True" HorizontalContentAlignment="Stretch" BorderThickness="0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid ShowGridLines="True">
+                    <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Text="{Binding UserName}" Height="20" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                            <TextBlock Grid.Column="1" Text="{Binding Trophies}" Height="20" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                            <TextBlock Grid.Column="2" Text="{Binding ClanName}" Height="20" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                            <Image Source="../Resources/UI Base Pack/PNG/grey_button00.png" Grid.ColumnSpan="3" Stretch="Fill" Margin="4"/>
+                            <TextBlock Grid.Column="0" Text="{Binding UserName}" Height="20" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <TextBlock Grid.Column="1" Text="{Binding Trophies}" Height="20" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <TextBlock Grid.Column="2" Text="{Binding ClanName}" Height="20" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                         </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

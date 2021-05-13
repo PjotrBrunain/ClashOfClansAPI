@@ -59,9 +59,9 @@ namespace ClashOfClans.Repository
                         VersusBattleWins = jObject.SelectToken("versusBattleWins").ToObject<int>(),
                         Role = jObject.SelectToken("role").ToString(),
                         Donations = jObject.SelectToken("donations").ToObject<int>(),
-                        DonationsReceived = jObject.SelectToken("donationsReceived").ToObject<int>(),
-                        ClanName = jObject.SelectToken("clan").SelectToken("name").ToString(),
-                        ClanTag = jObject.SelectToken("clan").SelectToken("tag").ToString()
+                        DonationsReceived = jObject.SelectToken("donationsReceived").ToObject<int>()
+                        //ClanName = jObject.SelectToken("clan").SelectToken("name").ToString(),
+                        //ClanTag = jObject.SelectToken("clan").SelectToken("tag").ToString()
                     };
 
                     return userInfo;
@@ -136,13 +136,18 @@ namespace ClashOfClans.Repository
 
                     foreach (JObject jObject in jObjects)
                     {
-                        userList.Add(new UserInfo()
+                        UserInfo user = new UserInfo()
                         {
                             Tag = jObject.SelectToken("tag").ToString(),
                             UserName = jObject.SelectToken("name").ToString(),
-                            Trophies = jObject.SelectToken("trophies").ToObject<int>(),
-                            ClanName = jObject.SelectToken("clan").SelectToken("name").ToString()
-                        });
+                            Trophies = jObject.SelectToken("trophies").ToObject<int>()
+                        };
+
+                        if (jObject.ContainsKey("clan"))
+                        {
+                            user.ClanName = jObject.SelectToken("clan").SelectToken("name").ToString();
+                        }
+                        userList.Add(user);
                     }
 
                     return userList;
