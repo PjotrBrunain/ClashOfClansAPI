@@ -73,5 +73,49 @@ namespace ClashOfClans.Repository
                 }
             }
         }
+
+        public async Task<List<UserInfo>> GetRankingsListAsync(int locationId, int amount)
+        {
+            string endPoint = $"https://api.clashofclans.com/v1/locations/{locationId}/rankings/players?limit={amount}";
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    string contentType = "application/json";
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(contentType));
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _apiToken);
+
+                    var response = await client.GetAsync(endPoint);
+
+                    if (!response.IsSuccessStatusCode) throw new HttpRequestException(response.ReasonPhrase);
+
+                    string json = await response.Content.ReadAsStringAsync();
+
+                    JObject mainJObject = JsonConvert.DeserializeObject<JObject>(json);
+
+                    List<JObject> jObjects = mainJObject.SelectToken("items").ToObject<List<JObject>>();
+
+                    List<UserInfo> userList = new List<UserInfo>();
+
+                    foreach (JObject jObject in jObjects)
+                    {
+                        userList.Add(new UserInfo()
+                        {
+                            Tag = jObject.SelectToken("tag").ToString(),
+                            UserName = jObject.SelectToken("name").ToString(),
+                            Trophies = jObject.SelectToken("trophies").ToObject<int>(),
+                            ClanName = jObject.SelectToken("clan").SelectToken("name").ToString()
+                        });
+                    }
+
+                    return userList;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw;
+                }
+            }
+        }
     }
 }

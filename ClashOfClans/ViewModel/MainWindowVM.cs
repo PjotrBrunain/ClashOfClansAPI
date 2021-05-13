@@ -17,9 +17,9 @@ namespace ClashOfClans.ViewModel
         {
             CurrentPage = MainPage;
         }
-        private UserPage _mainPage = new UserPage();
+        private RankingsPage _mainPage = new RankingsPage();
 
-        public UserPage MainPage
+        public RankingsPage MainPage
         {
             get => _mainPage;
             set => _mainPage = value;
