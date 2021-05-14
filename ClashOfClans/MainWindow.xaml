@@ -29,7 +29,7 @@
                 <TextBlock Text="Get User Info" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
             </Grid>
         </Button>
-        <Button Command="" Grid.Row="1" Background="Transparent" Margin="2" BorderThickness="0">
+        <Button Command="{Binding BackCommand}" Grid.Row="1" Background="Transparent" Margin="2" BorderThickness="0">
             <Grid>
                 <Image Source="Resources/UI Base Pack/PNG/green_button00.png" Stretch="Fill"/>
                 <TextBlock Text="Back" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>

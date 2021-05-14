@@ -57,12 +57,20 @@ namespace ClashOfClans.Repository
                         VersusTrophies = jObject.SelectToken("versusTrophies").ToObject<int>(),
                         BestVersusTrophies = jObject.SelectToken("bestVersusTrophies").ToObject<int>(),
                         VersusBattleWins = jObject.SelectToken("versusBattleWins").ToObject<int>(),
-                        Role = jObject.SelectToken("role").ToString(),
                         Donations = jObject.SelectToken("donations").ToObject<int>(),
                         DonationsReceived = jObject.SelectToken("donationsReceived").ToObject<int>()
                         //ClanName = jObject.SelectToken("clan").SelectToken("name").ToString(),
                         //ClanTag = jObject.SelectToken("clan").SelectToken("tag").ToString()
                     };
+
+                    if (jObject.ContainsKey("clan"))
+                    {
+                       userInfo.ClanName = jObject.SelectToken("clan").SelectToken("name").ToString();
+                       userInfo.ClanTag = jObject.SelectToken("clan").SelectToken("tag").ToString();
+                       userInfo.Role = jObject.SelectToken("role").ToString();
+                       userInfo.ClanShieldUrl = jObject.SelectToken("clan").SelectToken("badgeUrls")
+                           .SelectToken("large").ToString();
+                    }
 
                     return userInfo;
                 }

@@ -26,5 +26,6 @@ namespace ClashOfClans.Model
         public int DonationsReceived { get; set; }
         public String ClanName { get; set; }
         public String ClanTag { get; set; }
+        public String ClanShieldUrl { get; set; }
     }
 }

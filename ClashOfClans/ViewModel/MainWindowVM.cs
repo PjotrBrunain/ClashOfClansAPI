@@ -53,21 +53,32 @@ namespace ClashOfClans.ViewModel
                                                       {
                                                           if (CurrentPage is RankingsPage)
                                                           {
-                                                              string tag = (MainPage.DataContext as RankingsPageVM)
-                                                                  .SelectedUserInfo.Tag;
-                                                              if (!String.IsNullOrWhiteSpace(tag))
+                                                              if ((MainPage.DataContext as RankingsPageVM)
+                                                                  .SelectedUserInfo != null)
                                                               {
-                                                                  tag = tag.Remove(0, 1);
-                                                                  (UserDetailPage.DataContext as UserPageVM)
-                                                                      .GetUserInfo(tag);
-                                                                  CurrentPage = UserDetailPage;
+                                                                  string tag = (MainPage.DataContext as RankingsPageVM)
+                                                                      .SelectedUserInfo.Tag;
+                                                                  if (!String.IsNullOrWhiteSpace(tag))
+                                                                  {
+                                                                      tag = tag.Remove(0, 1);
+                                                                      (UserDetailPage.DataContext as UserPageVM)
+                                                                          .GetUserInfo(tag);
+                                                                      CurrentPage = UserDetailPage;
+                                                                  }
                                                               }
-                                                          }
-                                                          else
-                                                          {
-                                                              CurrentPage = MainPage;
                                                           }
                                                           RaisePropertyChanged("CurrentPage");
                                                       })));
+
+        private RelayCommand _backCommand;
+
+        public RelayCommand BackCommand => _backCommand ?? (_backCommand = new RelayCommand(() =>
+        {
+            if (CurrentPage is UserPage)
+            {
+                CurrentPage = MainPage;
+            }
+            RaisePropertyChanged("CurrentPage");
+        }));
     }
 }
